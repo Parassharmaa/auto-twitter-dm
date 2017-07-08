@@ -8,7 +8,9 @@
       "url": "heroku/python"
     }
   ],
-  "scripts": {
-    "postdeploy": "heroku ps:scale clock=1"
+  "formation": {
+    "clock": {
+      "quantity": 1
+    }
   }
 }
