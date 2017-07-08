@@ -15,7 +15,6 @@ if __name__ == "__main__":
         new = get_new_followers(tw_username)
         new_followers = list(set(new).difference(set(old)))
 
-
         save_followers(tw_username, new)
 
         for n in new_followers:
@@ -25,6 +24,7 @@ if __name__ == "__main__":
         t2 = time()
         print("Task completed in sec: ", t2-t1)
 
+    seed_db(tw_username)
     tasks()
     sched = BlockingScheduler()
     @sched.scheduled_job('interval', minutes=scheduler_time)

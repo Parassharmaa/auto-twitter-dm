@@ -24,12 +24,21 @@ def get_new_followers(username):
     print(len(ids))
     return ids
 
+def seed_db(username):
+    o = get_old_followers(username)
+    if not o:
+        n = get_new_followers(username)
+        save_followers(username, n)
+
 def get_old_followers(username):
     ids = []
     db = client.get_default_database()
     coll = db["followers"]
-    for i in coll.find({"username":username}):
-        ids = i['followers']
+    try:
+        for i in coll.find({"username":username}):
+            ids = i['followers']
+    except:
+        ids = []
     print(len(ids))
     return ids
 
