@@ -4,7 +4,6 @@
   "image": "heroku/python",
   "repository": "https://github.com/heroku/python-getting-started",
   "keywords": ["python", "twitter"],
-  "addons": ["clock"],
   "buildpacks": [
     {
       "url": "heroku/python"
