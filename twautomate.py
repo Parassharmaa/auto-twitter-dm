@@ -2,7 +2,7 @@ from time import time
 import os
 import pymongo
 import tweepy
-
+from config import generate_dm_text
 
 consumer_token = os.environ['TW_CTOKEN']
 consumer_secret = os.environ['TW_CSECRET']
@@ -51,10 +51,5 @@ def send_direct_message(to_userid):
     auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
     first_name = get_username(to_userid).split(' ')[0]
-
-    dm_text = '''Hey {}, Thanks for following me!
-		I just created a Messenger bot that lets user download books for free.
-		Try it here: https://m.me/bookbotai.
-		Know more about me at http://parazz.me'''.format(first_name)
-
+    dm_text = generate_dm_text(first_name)
     api.send_direct_message(to_userid, text=dm_text)
