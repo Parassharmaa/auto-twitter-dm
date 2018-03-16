@@ -1,4 +1,5 @@
 from time import time
+from twautomate import seed_db
 from twautomate import get_new_followers
 from twautomate import get_old_followers
 from twautomate import send_direct_message
